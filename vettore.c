@@ -3,13 +3,15 @@
 #include "vettore.h"
 #include "utils.h"
 
-void inizializzaArray(int a[], int taglia){
+//Inizializza l'array iterativamente
+void inizializzaArray(int a[], int taglia, int *ultimo){
   for(int i=0; i<taglia; i++){
     printf("Inserire l'elemento in posizione %d: ", i);
     scanf("%d", &a[i]);
   }
   printf("\nArray inizializzato!\n");
-  return 1; //cambiare col tipo boolean
+  *ultimo=taglia-1;
+  return true;
 }
 
 //Stampa tutti i valori con la loro posizione iterativamente
@@ -19,42 +21,70 @@ void stampaArray(int a[], int taglia){
   }
 }
 
+//Cerca un elemento nell'array e ne stampa la posizione
 void cercaArray(int a[], int taglia, int n){
-  int occorrenze=0, *pos;
-  pos = (* int)malloc(1*sizeof(int));
-  for(int i=0, i<taglia, i++){
-    if(a[i]==n){
-      occorrenze++;
-      //inserire la realloc e tutto il resto del cerca array
+  int inizio=0, fine=n-1, centro;
+  while(inizio<=fine){
+    centro=(inizio-fine)/2;
+    if(e==a[centro]){
+      return centro;
+    }else if(e>a[centro]){
+      inizio=centro+1;
+    }else if(e<a[centro]){
+      fine=centro-1;
+    }else{
+      printf("Valore non trovato nell'array!");
     }
-  }
-  if(occorrenze==0){
-    printf("Il velore inserito non è presente nell'array!");
-  }else{
-    printf("Il valore inserito è stato trovato %d volte nell'array.", occorrenze); //inserire la stampa delle posizioni
+  printf("Il valore minimo nell'array è %d nella posizione %d", a[centro], centro);
   }
 }
 
-//Cerca il minimo iteramente lungo tutto l'array, segnando inizialmente come minimo l'elemento in posizione 0, stampando valore e posizione
+//Cerca il minimo lungo tutto l'array
 void minimoArray(int a[], int taglia){
-  int minimo=a[0], pos;
-  for(int i=1; i<taglia; i++){
-    if(a[i]<minimo){
-      minimo=a[i];
-      pos=i;
+  int minimo=min(a, taglia);
+  printf("Il valore minimo nell'array è %d nella posizione %d", a[min], min);
+}
+
+//Ordinamento degli elementi dell'array tramite Selection Sort
+void ordinaArray(int a[], int *ultimo){
+  bubbleSort(a, *ultimo);
+  printf("L'array è stato ordinato");
+}
+
+void eliminaArray(int a[], int *ultimo){
+  if(*ultimo<0){
+    printf("L'array è vuoto, impossibile eliminare elementi!");
+  }else{
+    while(true){
+      printf("Inserire la posizione (da 0 a %d) dell'elemento da eliminare: ", *ultimo);
+      int i;
+      scanf("%d", &i);
+      if(i<0 || i>=*ultimo){
+        printf("L'indice inserito non è un elemento valido!");
+      }else{
+        break;
+      }
     }
+    shiftsx(a, ultimo, i);
   }
-  printf("Il valore minimo nell'array è %d nella posizione %d.", minimo, pos);
 }
 
-void ordinaArray(int a[], int taglia){
-
-}
-
-void eliminaArray(int a[], int taglia){
-
-}
-
-void inserisciArray(int a[], int taglia){
-
+void inserisciArray(int a[], int taglia, int *ultimo){
+  if(*ultimo>=taglia){
+    printf("L'array è pieno, impossibile inserire elementi!");
+  }else{
+    while(true){
+      printf("Inserire la posizione (da 0 a %d) dell'elemento da inserire: ", *ultimo);
+      int i;
+      scanf("%d", &i);
+      if(i<0 || i>=*ultimo){
+        printf("L'indice inserito non è un elemento valido!");
+      }else{
+        break;
+      }
+    }
+  shiftdx(a, ultimo, i);
+  printf("Inserire il valore da inserire: ");
+  scanf("%d", &valore)
+  a[i]=valore;
 }
