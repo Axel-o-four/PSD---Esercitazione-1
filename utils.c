@@ -2,8 +2,7 @@
 
 #include "utils.h"
 
-//Tipo boolean per condizioni False o True
-typedef int bool;
+//Tipi boolean per condizioni False o True
 #define true 1
 #define false 0
 
@@ -25,6 +24,7 @@ int min(int *a, int n){
   return min;
 }
 
+//Algoritmo di ordinamento
 void bubbleSort(int a[], int elementi){
   for(int i=0; i<elementi; i++){
     for(int j=0; j<(elementi-i); j++){
@@ -35,15 +35,17 @@ void bubbleSort(int a[], int elementi){
   }
 }
 
+//shift a sinistra per le eliminazioni
 void shiftsx(int a[], int *ultimo, int i){
   for(; i<*ultimo; i++){
-    int[i]=int[i+1];
+    a[i]=a[i+1];
   }
-  (*ultimo)--
+  (*ultimo)--;
 }
 
+//shift a destra per gli inserimenti
 void shiftdx(int a[], int *ultimo, int i){
-  for(int j=*ultimo; j>i; j--){
+  for(int j=*ultimo; j>=i; j--){
     a[j]=a[j-1];
   }
   (*ultimo)++;
