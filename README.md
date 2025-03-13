@@ -1,3 +1,5 @@
+# Esercitazione di Programmazione e Strutture Dati N°1
+
 Realizzare un programma in Linguaggio C che consenta di effettuare, tramite un semplice menu a caratteri, le seguenti operazioni su un vettore di numeri interi:
 
 1. Immissione elementi in un dato array
