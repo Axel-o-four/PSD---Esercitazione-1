@@ -61,6 +61,7 @@ void ordinaArray(int a[], int ultimo){
   printf("L'array è stato ordinato");
 }
 
+//Eliminazione di un elemento tramite shift a sinistra
 void eliminaArray(int a[], int *ultimo){
   int i;
   while(true){
@@ -75,6 +76,7 @@ void eliminaArray(int a[], int *ultimo){
   shiftsx(a, ultimo, i);
 }
 
+//Inserimento di un elemento tramite shift a destra e copia del valore nello spazio liberato
 void inserisciArray(int a[], int taglia, int *ultimo){
   int i, valore;
   while(true){
